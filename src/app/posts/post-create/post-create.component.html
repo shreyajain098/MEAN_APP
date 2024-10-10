@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="createPostFG" (submit)="onSavePost()" *ngIf="!isLoading">
+
+    <mat-form-field>
+      <input matInput type="text" name="title" formControlName="title" placeholder="Post Title">
+      <mat-error *ngIf="createPostFG.get('title').invalid">Please enter a post title.</mat-error>
+      <mat-hint align="end">{{ createPostFG.get('title').value?.length || 0 }}/75</mat-hint>
+    </mat-form-field>
+
+    <div class="upload-img">
+      <button mat-stroked-button type="button" (click)="filePicker.click()">Upload Image</button>
+      <input type="file" #filePicker (change)="onImgUpload($event)">
+    </div>
+
+    <div class="img-preview" *ngIf="imagePreview !== '' && imagePreview !== null && createPostFG.get('image').valid">
+      <img [src]="imagePreview" [alt]="createPostFG.value.title">
+    </div>
+
+    <mat-form-field>
+      <textarea matInput rows="4" name="content" formControlName="content" placeholder="Post Content">
+         </textarea>
+      <mat-error *ngIf="createPostFG.get('content').invalid">Please enter content.</mat-error>
+    </mat-form-field>
+
+    <a href="javascript:void(0)" class="cancelBtn" (click)="cancelPost()">Cancel</a>
+    <button class="saveBtn" mat-raised-button type="submit" color="primary">Save Post</button>
+  </form>
+</mat-card>

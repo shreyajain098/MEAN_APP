@@ -1,0 +1,30 @@
+mat-form-field
+ {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;  /*to put spinner in center */
+}
+
+.input-field {
+    width: 50%;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+  }
+  .userStatus {
+    margin-top: 20px;
+  }
+  .saveBtn {
+    cursor: pointer;
+  }
+  ::ng-deep .saveBtn[disabled] {
+    pointer-events: none !important;
+    opacity: 0.6;
+    cursor: not-allowed !important;
+  }
+  

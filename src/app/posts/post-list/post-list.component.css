@@ -1,0 +1,54 @@
+:host {
+    display: block;
+    margin-top: 1rem;
+  }
+  
+  .info-text {
+    text-align: center;
+  }
+  .filter-posts {
+    font-size: small;
+  }
+  mat-spinner {
+    margin: auto;  /*to put spinner in center */
+  }
+  .search-sort {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .search {
+    flex: 3;
+  }
+  .search-input {
+    display: flex;
+    align-items: center;
+  }
+  .search-input mat-icon {
+    margin-left: 8px;
+  }
+  .filter {
+    flex: 1;
+  }
+ 
+  .content-field {
+    margin-top: 15px;
+  }
+  .post-image {
+    width: 20%;
+  }
+  .post-image img {
+    width: 100%;
+  }
+
+  button.mat-button[disabled], a.mat-button[disabled] {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+  }
+  
+  button.mat-mdc-button[disabled], a.mat-mdc-button[disabled] {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+    pointer-events: auto;
+  }
+  

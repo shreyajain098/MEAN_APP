@@ -1,0 +1,29 @@
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+input[type='file'] {
+  visibility: hidden;
+}
+
+mat-spinner {
+  margin: auto;  /*to put spinner in center */
+}
+
+.img-preview img {
+  width: 20%;
+  height: 30%;
+}
+
+.saveBtn {
+  margin-left: 20px;
+}
+.content-field {
+  margin-top: 15px;
+}
+
+.cancelBtn {
+  margin-left: 20px;
+}
+

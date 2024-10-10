@@ -1,0 +1,22 @@
+mat-form-field
+ {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;  /*to put spinner in center */
+}
+
+.input-field {
+    width: 50%;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+  }
+  .userStatus {
+    margin-top: 20px;
+  }
+

@@ -1,0 +1,51 @@
+<div class="search-sort">
+  <mat-form-field class="search">
+    <div class="search-input">
+      <input matInput type="text" name="search" (input)="onSearchInput($event.target.value)"
+        placeholder="Search by Title">
+      <mat-icon color="primary">search</mat-icon>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" *ngIf="isUserAuthenticated" class="filter">
+    <mat-label>View</mat-label>
+    <mat-select class="filter-posts" [(value)]="postFilter" (selectionChange)="onPostFilterChange()">
+      <mat-option value="all">All Posts</mat-option>
+      <mat-option value="my">My Posts</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="filteredPosts.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let post of filteredPosts">
+    <mat-expansion-panel-header>
+      <div [innerHTML]="highlightSearch(post.title)"></div>    
+    </mat-expansion-panel-header>
+
+    <div class="post-image">
+      <img [src]="post.imagePath" [alt]="post.title" loading="lazy">
+    </div>
+
+<div class="content-field">
+      <p>{{ post.content }}</p>
+    </div>
+
+    <mat-action-row>
+      <a [routerLink]="isUserAuthenticated && userId === post.creator ? ['edit', post.id] : null"  mat-button color="primary" [disabled]="!isUserAuthenticated || userId !== post.creator"
+      [ngClass]="{'disabled-button': !isUserAuthenticated || userId !== post.creator}">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <button mat-button color="warn" (click)="onDelete(post.id)" [disabled]="!isUserAuthenticated || userId !== post.creator"
+      [ngClass]="{'disabled-button': !isUserAuthenticated || userId !== post.creator}">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-paginator *ngIf="!isSearching && filteredPosts.length > 0" (page)="handlePageEvent($event)" [length]="filteredTotalPosts"
+  [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions">
+</mat-paginator>
+
+<p class="info-text mat-body-1" *ngIf="!filteredPosts.length && !isLoading">No posts found!</p>
