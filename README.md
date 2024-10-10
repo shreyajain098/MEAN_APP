@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
+A full-stack web application built with the MEAN stack (MongoDB, Express, Angular, Node.js). This project demonstrates how to integrate a backend API with a dynamic Angular frontend to create a responsive web app.
+
+## Features
+
+- User authentication & authorization
+- CRUD operations
+- Responsive design
+- API integration with MongoDB
+
+## Live Demo Link
+
+http://mean-node-mongo-angular.s3-website.eu-north-1.amazonaws.com/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -25,3 +38,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
